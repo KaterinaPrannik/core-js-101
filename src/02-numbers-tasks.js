@@ -52,11 +52,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  let MAX_VALUE;
-  if ((value2 || value1) === MAX_VALUE) {
-    return Math.exp((value1 + value2) / 2);
-  }
-  return (value1 + value2) / 2;
+  return ((value1 / 20 + value2 / 20) / 2) * 20;
 }
 
 /**
@@ -96,8 +92,8 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  return -b / a;
 }
 
 
@@ -135,8 +131,8 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
 
 
@@ -190,12 +186,10 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  if (pow === 0) {
-    return num;
-  }
-  return Math.round(num, pow);
-}
+  const a = 10 ** pow;
 
+  return Math.round(num / a) * a;
+}
 /**
  * Returns true is the number is prime; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
